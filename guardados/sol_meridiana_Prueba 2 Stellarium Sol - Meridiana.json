@@ -1,0 +1,33 @@
+{
+    "meta": {
+        "nombre_visible": "Prueba 2 (Stellarium): Sol - Meridiana",
+        "nombre": "Prueba 2 (Stellarium): Sol - Meridiana",
+        "tipo": "sol_meridiana",
+        "fecha_guardado": "2026-03-24T01:01:39.902706"
+    },
+    "datos": {
+        "del_meri_final_smart": [],
+        "meri_lat_s": 51.0,
+        "meri_lat_c": "N",
+        "mi_meri_0": 37,
+        "meri_lon_s": 6.0,
+        "meri_lon_g": 3,
+        "meri_fecha": "2026-02-23",
+        "save_meri_input": "Prueba 2 (Stellarium): Sol - Meridiana",
+        "s_meri_0": 20,
+        "si_meri_0": 14,
+        "g_meri_0": 39,
+        "meri_ei": 0.0,
+        "meri_lat_m": 24,
+        "menu_abierto": "sol",
+        "meri_ao": 0.0,
+        "meri_lon_c": "W",
+        "m_meri_0": 28,
+        "tipo_calculo_sol": "meridiana",
+        "h_meri_0": 12,
+        "meri_lat_g": 40,
+        "n_meri_input": 1,
+        "meri_lon_m": 42,
+        "modo_navegacion": "sol"
+    }
+}
