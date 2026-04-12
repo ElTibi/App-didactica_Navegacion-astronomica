@@ -1576,15 +1576,16 @@ if st.session_state["modo_navegacion"] == "sol":
                     s_paso = int(time_max_final % 60)
                     time_paso = datetime.time(h_paso, m_paso, s_paso)
 
-                    anio = fecha_meridiana.year
-                    dia_anho = fecha_meridiana.timetuple().tm_yday
-                    nombre_archivo = f"AN{anio}{dia_anho + 9}.dat"
-                    ruta_archivo = os.path.join("almanaque", nombre_archivo)
+                    ruta_archivo = almanaque.obtener_ruta_archivo_dat(
+                        fecha_meridiana.day,
+                        fecha_meridiana.month,
+                        fecha_meridiana.year
+                    )
+
                     
-                    dec = 0.0 
-                    
-                    if not os.path.exists(ruta_archivo):
-                        st.error(f"❌ No encuentro el archivo: {ruta_archivo}")
+                    if not ruta_archivo:
+                        doy = fecha_meridiana.timetuple().tm_yday
+                        st.error(f"❌ No encuentro el archivo: AN{fecha_meridiana.year}{doy + 9}.DAT")
                         st.stop()
                     else:
                         datos_dia = almanaque.leer_datos_dat_completo(ruta_archivo)
