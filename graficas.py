@@ -327,17 +327,10 @@ def dibujar_situacion_estrellas(lista_resultados):
     lat_final = None; lon_final = None
     
     if cruces:
-        A_ls = np.array([
-            [math.sin(math.radians(r['azimut'])), math.cos(math.radians(r['azimut']))]
-            for r in datos_rectas
-        ])
-        b_ls = np.array([
-            math.sin(math.radians(r['azimut'])) * r['p_det'][0] +
-            math.cos(math.radians(r['azimut'])) * r['p_det'][1]
-            for r in datos_rectas
-        ])
-        sol_ls, _, _, _ = np.linalg.lstsq(A_ls, b_ls, rcond=None)
-        avg_x_dep, avg_y_millas = sol_ls[0], sol_ls[1]
+        # --- POSICIÓN POR BARICENTRO GEOMÉTRICO ---
+        # Calcula el promedio simple de todas las intersecciones (centro del triángulo)
+        avg_x_dep = sum(c[0] for c in cruces) / len(cruces)
+        avg_y_millas = sum(c[1] for c in cruces) / len(cruces)
 
         if len(cruces) >= 3: ax.add_patch(plt.Polygon(cruces, color='gold', alpha=0.2))
         ax.plot(avg_x_dep, avg_y_millas, marker='o', color='gold', markeredgecolor='black', markersize=10, zorder=15)
